@@ -11,4 +11,14 @@
 
 (() => {
     // your code here
+    
+    document.getElementById("run").addEventListener("click",()=>{
+            let annee = parseInt(document.getElementById("year").value);
+            for (let mois = 0; mois < 12; mois++) {
+                let date = new Date(annee, mois, 13);
+                if (date.getDay() === 5) {
+                    document.getElementById("mois").innerHTML = new Intl.DateTimeFormat('fr-FR', { month: 'long' }).format(date);
+                }
+            }
+        })
 })();

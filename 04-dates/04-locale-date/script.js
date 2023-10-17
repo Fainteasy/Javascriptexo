@@ -12,4 +12,14 @@
 (() => {
     // to change the content of a tag: document.getElementById("element-id").innerHTML = "new-value"
     // your code here
+    let now = new Date();
+    let options = {
+        weekday:"long",
+        month:"long",
+        day:"numeric",
+        hour:"2-digit",
+        minute:"2-digit",
+    };
+        let frenchdate = now.toLocaleString("fr-FR", options);
+        document.getElementById("target").innerHTML=frenchdate;
 })();
