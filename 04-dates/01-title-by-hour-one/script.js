@@ -12,4 +12,16 @@
 (() => {
     // to change the content of a tag: document.getElementById("element-id").innerHTML = "new-value"
     // your code here
-})();
+    let dayTime; 
+    const now = new Date();
+    const hours = now.getHours();
+    console.log(now);
+    console.log(hours);
+    if(hours>=18){
+        dayTime = "Bonsoir";
+    }
+    else {
+        dayTime = "Bonjour";
+    }
+    document.getElementById("target").innerHTML = dayTime;
+    })();

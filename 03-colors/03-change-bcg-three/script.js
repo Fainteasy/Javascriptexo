@@ -11,4 +11,13 @@
 
 (() => {
     // your code here
+    document.getElementById("run").addEventListener("click",() => {
+        const hexNombre = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, "A", "B", "C", "D", "E", "F"];
+        let randomColor="";
+        for(i=0; i<6; i++){
+            randomColor += hexNombre[Math.floor(Math.random()*16)];
+        }
+        randomColor = "#"+randomColor;
+        document.body.style.backgroundColor = randomColor;
+    })
 })();
