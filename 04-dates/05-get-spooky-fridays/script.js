@@ -17,7 +17,10 @@
             for (let mois = 0; mois < 12; mois++) {
                 let date = new Date(annee, mois, 13);
                 if (date.getDay() === 5) {
-                    document.getElementById("mois").innerHTML = new Intl.DateTimeFormat('fr-FR', { month: 'long' }).format(date);
+                    let mois2 = new Intl.DateTimeFormat('fr-FR', { month: 'long' }).format(date);
+                    let paragraphe = document.createElement("li");
+                    paragraphe.textContent = mois2;
+                    document.getElementById("mois").appendChild(paragraphe);
                 }
             }
         })
