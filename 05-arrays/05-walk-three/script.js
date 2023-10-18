@@ -42,4 +42,8 @@
     ];
 
     // your code here
+    people.forEach(person =>
+        {
+            console.log(person.lastname);
+        })
 })();

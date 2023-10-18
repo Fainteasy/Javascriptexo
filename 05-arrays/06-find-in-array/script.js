@@ -89,4 +89,11 @@
     ];
 
     // your code here
+    document.getElementById("run").addEventListener("click",() => {
+       let finder = people.find(person => person.firstname === "Jean" && person.lastname ==="Dupont");
+        if (finder){
+            console.log(finder.email);
+            console.log(people.indexOf(finder));
+        }
+    })
 })();

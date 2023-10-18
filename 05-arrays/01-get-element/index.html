@@ -17,6 +17,30 @@
         <link rel="stylesheet" href="../../_shared/css/styles.css" />
     </head>
     <body>
+        <style>
+            .modal {
+                display: none;
+                position: fixed;
+                z-index: 1;
+                left: 0;
+                top: 0;
+                overflow: auto;
+                width: 100%;    
+            }
+            .modal-content {
+                background-color: gray;
+                margin: 15% auto;
+                padding: 20px;
+                border: 1px solid #888;
+                width: 80%;
+            }
+            .close {
+                float:right;
+            }
+            .close:focus {
+                cursor: pointer;
+            }
+        </style>
         <div class="container">
             <header>
                 <h1>BeCode / JavaScript</h1>
@@ -32,6 +56,12 @@
                 <section class="material">
                     <div class="actions">
                         <button type="button" id="run">Lancer le script</button>
+                    </div>
+                    <div class="modal" id="modal">
+                        <div class="modal-content">
+                            <em class="close">Close</em>
+                            <p></p>
+                        </div>
                     </div>
                 </section>
             </div>
