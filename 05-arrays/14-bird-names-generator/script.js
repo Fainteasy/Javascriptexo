@@ -39,4 +39,8 @@
     ]);
 
     // your code here
+    document.getElementById("run").addEventListener("click", () => {
+        let randomBird = Math.floor(Math.random() * birds.lenght);
+        console.log(randomBird);
+    })
 })();

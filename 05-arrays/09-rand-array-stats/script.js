@@ -12,14 +12,24 @@
 (() => {
     // your code here
     document.getElementById("run").addEventListener('click',() => {
-       let value = Array.from({length: 10}, ()=> Math.floor(Math.random()*100));
-       console.log(value);
-       for (i=0; i>value.length; i++){
-        let cellId="n-" + (i + 1);
-        let cell = document.getElementById(cellId);
-        if (cell) {
-            cell.innerHTML = value[i];
-        }
-       }
+       let values = Array.from({length: 10}, ()=> Math.floor(Math.random()*100));
+       console.log(values);
+       for (let i = 0; i < values.length; i++) {
+        let cellId = "n-" + (i + 1);
+        let cell = document.getElementById(cellId); 
+        cell.textContent = values[i]; 
+    }
+    let min = Math.min(...values);
+    let max = Math.max(...values);
+    let sum = 0;
+    values.forEach (num => {
+        sum += num;
+    })
+    let average = 0;
+    average = sum/values.length;
+    document.getElementById("min").textContent = min;
+    document.getElementById("max").textContent = max;
+    document.getElementById("sum").textContent = sum;
+    document.getElementById("average").textContent = average;
     })
 })();
