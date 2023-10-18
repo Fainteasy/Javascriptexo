@@ -40,7 +40,13 @@
 
     // your code here
     document.getElementById("run").addEventListener("click", () => {
-        let randomBird = Math.floor(Math.random() * birds.lenght);
-        console.log(randomBird);
+        let randomBirdIndex = Math.floor(Math.random() * birds.length);
+        let randomBird = birds[randomBirdIndex];
+        let randomAdj = Array.from(adjectives)[Math.floor(Math.random()*adjectives.size)];
+        console.log(randomAdj);
+        console.log(randomBird.name);
+        birdName = randomBird.fem? randomAdj+"e" : randomAdj;
+        console.log(randomBird.name + " "+ birdName);
+        document.getElementById("target").textContent = randomBird.name + " " + birdName;
     })
 })();
