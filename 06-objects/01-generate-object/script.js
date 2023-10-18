@@ -11,4 +11,14 @@
 
 (() => {
     // your code here
+    document.getElementById("run").addEventListener("click", ()=> {
+        let moi ={
+            lastname: "Jacobs",
+            firstname : "Gwendoline", 
+            age : 29,
+            city : "Huy",
+            country: "Belgique",
+        }
+        console.log(moi);
+    })
 })();
