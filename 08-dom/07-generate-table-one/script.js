@@ -11,4 +11,15 @@
 
 (() => {
     // your code here
+    let target = document.getElementById("target");
+    let table = document.createElement("table");
+    for (i =0; i<10; i++) {
+        let row = document.createElement("tr");
+        let col = document.createElement("td");
+        col.textContent="test";
+        row.appendChild(col);
+        table.appendChild(row);
+    }
+    target.appendChild(table);
+
 })();

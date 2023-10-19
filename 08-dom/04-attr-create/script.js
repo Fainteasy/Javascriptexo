@@ -11,4 +11,12 @@
 
 (() => {
     // your code here
+    let image = document.getElementById("source")
+    let source = image.getAttribute("data-image");
+    let target = document.getElementById("target");
+    let imageBalise = document.createElement("img");
+    imageBalise.src = source;
+    target.appendChild(imageBalise);
+    image.remove();
+    
 })();

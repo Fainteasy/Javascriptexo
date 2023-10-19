@@ -17,6 +17,12 @@
         "../../_shared/img/lemon.svg",
         "../../_shared/img/map.svg",
     ];
+    let index = 0;
 
     // your code here
+    document.getElementById("next").addEventListener("click", ()=> {
+        let source = document.querySelector("img"); 
+        index = (index + 1) % gallery.length;
+        source.src = gallery[index];
+    })
 })();
