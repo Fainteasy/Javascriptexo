@@ -11,4 +11,12 @@
 
 (() => {
     // your code here
+    let password1 = document.getElementById("pass-one");
+    let password2 = document.getElementById("pass-two");
+    document.getElementById("run").addEventListener("click",() => {
+        if (password1.value !== password2){
+            password1.classList.add("error");
+            password2.classList.add("error");
+        }
+    })
 })();

@@ -11,4 +11,16 @@
 
 (() => {
     // your code here
+   let inputText = document.getElementById("pass-one");
+   let counter = document.getElementById("counter");
+   inputText.addEventListener("input", () => {
+    let inputValue = inputText.value;
+    let counterChar  = inputValue.length;
+     if(counterChar>10){
+        inputText.value = inputValue.slice(0, 10);
+        counterChar = 10
+     }
+     counter.textContent= counterChar + "/10";
+   })
+
 })();
