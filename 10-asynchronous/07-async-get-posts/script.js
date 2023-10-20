@@ -11,4 +11,16 @@
 
 (() => {
     // your code here
+        async function getPostandConsole() {
+            try {
+            let article = await window.lib.getPosts();
+                article.forEach((article) => {
+                    console.table(article);
+                })
+
+            } catch (error) {
+                console.error(error);
+            }
+    }
+    document.getElementById("run").addEventListener("click",getPostandConsole);
 })();

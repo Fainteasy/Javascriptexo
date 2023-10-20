@@ -11,4 +11,18 @@
 
 (() => {
     // your code here
+    (async () => {
+        async function getPersons() {
+            try {
+                const persons = await window.lib.getPersons();
+                console.log("Personnes récupérées avec succès :", persons);
+            } catch (error) {
+                console.error("Erreur lors de la récupération des personnes :", error);
+            }
+        }
+            async function onClickButton() {
+            await getPersons();
+        }
+            document.getElementById("run").addEventListener("click", onClickButton);
+    })();
 })();

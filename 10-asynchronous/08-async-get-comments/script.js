@@ -11,4 +11,40 @@
 
 (() => {
     // your code here
+    (async () => {
+        async function getCommentsForArticle(article) {
+            try {
+                const comments = await window.lib.getComments(article.id);
+                article.comments = comments;
+                return article;
+            } catch (error) {
+                console.error("Erreur lors de la récupération des commentaires pour l'article ID", article.id, ":", error);
+                article.comments = [];
+                return article;
+            }
+        } 
+        async function getPostsAndComments() {
+            try {
+                const articles = await window.lib.getPosts();
+                
+                for (const article of articles) {
+                    await getCommentsForArticle(article);
+                    console.log("Article ID :", article.id);
+                    console.log("Titre :", article.title);
+                    console.log("Contenu :", article.body);
+                    console.log("Commentaires :", article.comments);
+                    console.log("-----------------------------");
+                }
+            } catch (error) {
+                console.error("Erreur lors de la récupération des articles :", error);
+            }
+        }
+    
+        async function onClickButton() {
+            await getPostsAndComments();
+        }
+
+        document.getElementById("run").addEventListener("click", onClickButton);
+    })();
 })();
+

@@ -11,4 +11,14 @@
 
 (() => {
     // your code here
+    document.getElementById("run").addEventListener("click",() =>{
+        window.lib.getPosts().then(function(articles) {
+            articles.forEach(function(article) {
+              console.log("Article ID :", article.id);
+              console.log("Titre :", article.title);
+              console.log("Contenu :", article.body);
+              console.log("-----------------------------");
+            });
+        })
+    });
 })();
