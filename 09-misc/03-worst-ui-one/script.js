@@ -11,4 +11,11 @@
 
 (() => {
     // your code here
+    const slider = document.getElementById('slider');
+        const phoneNumber = document.getElementById('target');
+
+        slider.addEventListener('input', () => {
+            const formattedNumber = "+4" + slider.value.toString().padStart(9, '0');
+            phoneNumber.textContent = formattedNumber;
+        });
 })();

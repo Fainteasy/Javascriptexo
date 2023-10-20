@@ -11,4 +11,34 @@
 
 (() => {
     // your code here
+    let input = document.getElementById("uservalue");
+    let target = document.getElementById("target");
+    let randomNumber = Math.floor(Math.random()*100);
+    console.log(randomNumber);
+    document.getElementById("run").addEventListener("click",() => {
+        if(isNaN(input.value)) {
+            
+            target.textContent="Entrez un nombre";
+            input.style.borderColor="red";
+            target.style.color = "red";
+        }
+        else {
+            target.style.color ="black";
+            target.textContent=" ";
+            input.style.borderColor="";
+            if (input.value > randomNumber) {
+                target.textContent = "Le nombre que vous devez trouver est plus petit."
+            }
+                else if (input.value < randomNumber ) {
+                    target.textContent = "Le nombre que vous devez trouver est plus grand.";
+                }
+                else {
+                    target.textContent = "Bravo, vous avez trouvé ! Le nombre à deviner était bien " + randomNumber + ".";
+                    target.style.color = "green";
+                }    
+        }
+        
+
+    })
+
 })();

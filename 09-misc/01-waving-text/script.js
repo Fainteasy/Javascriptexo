@@ -10,5 +10,15 @@
 // You will have time to focus on it later.
 
 (() => {
-    // your code here
+    const targetElement = document.getElementById("target");
+const originalText = targetElement.textContent;
+function createWaveEffect(text) {
+  let waveText = '';
+  for (let i = 0; i < text.length; i++) {
+    let char = text[i];
+    waveText += `<span style="font-size: ${30 + 10 * Math.sin(i / 2)}px;">${char}</span>`;
+  }
+  return waveText;
+}
+targetElement.innerHTML = createWaveEffect(originalText);
 })();

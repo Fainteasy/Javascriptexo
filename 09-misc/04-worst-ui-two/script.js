@@ -10,5 +10,36 @@
 // You will have time to focus on it later.
 
 (() => {
-    // your code here
+    let targetElement = document.getElementById("target");
+    let buttons = document.querySelectorAll(".actions button");
+
+    let currentValues = Array.from(buttons, button => ({
+        min: parseInt(button.getAttribute("data-min")),
+        max: parseInt(button.getAttribute("data-max")),
+        value: parseInt(button.textContent)
+    }));
+
+    buttons.forEach((button, index) => {
+        button.addEventListener("click", () => {
+            currentValues[index].value = (currentValues[index].value + 1) % (currentValues[index].max + 1);
+            if (currentValues[index].value < currentValues[index].min) {
+                currentValues[index].value = currentValues[index].min;
+            }
+            updateTarget();
+            updateButtonLabels();
+        });
+    });
+
+    function updateTarget() {
+        let result = currentValues.reduce((acc, currentValue) => {
+            return acc + currentValue.value.toString().padStart(2, '0');
+        }, "+");
+        targetElement.textContent = result;
+    }
+
+    function updateButtonLabels() {
+        buttons.forEach((button, index) => {
+            button.textContent = currentValues[index].value.toString().padStart(2, '0');
+        });
+    }
 })();

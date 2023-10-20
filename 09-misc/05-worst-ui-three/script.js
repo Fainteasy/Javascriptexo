@@ -1,14 +1,45 @@
-/* becode/javascript
- *
- * /09-misc/05-worst-ui-three/script.js - 9.5: la pire interface (3) : phone slot
- *
- * coded by leny@BeCode
- * started at 26/10/2018
- */
-
-// NOTE: don't focus on the existing code structure for now.
-// You will have time to focus on it later.
-
 (() => {
-    // your code here
+    let targetElement = document.getElementById("target");
+    let inputs = document.querySelectorAll("input[type='text']");
+    let buttons = document.querySelectorAll("button");
+
+    let currentValues = Array.from(inputs, input => ({
+        min: parseInt(input.getAttribute("data-min")),
+        max: parseInt(input.getAttribute("data-max")),
+        value: parseInt(input.value),
+        input: input
+    }));
+
+    buttons.forEach((button, index) => {
+        button.addEventListener("click", () => {
+            if (button.textContent === "Stop") {
+                button.textContent = "Restart";
+                currentValues[index].input.setAttribute("readonly", "readonly");
+            } else {
+                button.textContent = "Stop";
+                currentValues[index].input.removeAttribute("readonly");
+            }
+        });
+    });
+
+    setInterval(() => {
+        currentValues.forEach((item) => {
+            if (!item.input.hasAttribute("readonly")) {
+                item.value = (item.value + 1) % (item.max + 1);
+                if (item.value < item.min) {
+                    item.value = item.min;
+                }
+                item.input.value = item.value.toString().padStart(2, '0');
+            }
+        });
+        updateTarget();
+    }, 50); 
+    function updateTarget() {
+        let result = Array.from(inputs).reduce((acc, input) => {
+            return acc + input.value;
+        }, "+");
+        targetElement.textContent = result;
+    }
 })();
+
+

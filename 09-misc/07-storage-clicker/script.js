@@ -11,4 +11,13 @@
 
 (() => {
     // your code here
+    let button = document.getElementById("increment");
+    let counterValue = document.getElementById("target");
+    let counter = localStorage.getItem("counter") || 0;
+    counterValue.textContent = counter;
+    button.addEventListener("click",()=> {
+        counter++;
+        counterValue.textContent = counter;
+        localStorage.setItem("counter", counter);
+    })
 })();
